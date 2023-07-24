@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <form action="" autocomplete="on" target="_blank"> <!--/test.php-->
+        <label for="name">Full Name : </label>
+        <input 
+            id="name"
+            type="text" 
+            placeholder="Name" 
+            required 
+            maxlength="30" 
+            minlength="5"
+            name="name"
+        />
+        <br>
+        <label for="password">Password : </label>
+        <input type="password" id="password" placeholder="Password"/ required name="pass">
+        <br>
+        <label for="email">Email : </label>
+        <input type="email" id="email" placeholder="Email" required name="email"/>
+        <br>
+        <label for="age">Age : </label>
+        <input type="number" id="age" placeholder="Age" title="Please enter Age" name="age"/>
+        <br>
+        <label for="image">Upload Image : </label>
+        <input type="file" id="image" name="image"/>
+        <br>
+        <label for="accept">I Accept Policy : </label>
+        <input id="accept" type="checkbox" name="policy"/>
+        <br>
+        <label for="confirm">I Confirm : </label>
+        <input id="confirm" type="radio" name="confirm"/>
+        <br>
+        <label for="time">Enter Leave Time : </label>
+        <input id="time" type="time" name="time"/>
+        <br>
+        <label for="DOB">DOB : </label>
+        <input id="DOB" type="date" name="dob" />
+        <br>
+        <input type="reset" />
+        <br>
+        <input type="search" placeholder="Search for......" name="search"/>
+        <br>
+        <label for="edu">Education : </label>
+        <select name="education" id="edu">
+            <option value="non">-.-</option>
+            <option value="highSchool">High School Diploma</option>
+            <option value="underGrad">Under Graduate</option>
+            <option value="postGrad">Post Graduate</option>
+            <option value="doc">Doctorate</option>
+            <option value="self">Self Taught</option>
+        </select>
+
+        <br>
+        <label>Captcha</label>
+        <br>
+        <label for="red">Red</label>
+        <input id="red" type="radio"  name="color" value="red"/>
+        <label for="blue">Blue</label>
+        <input type="radio" id="blue" name="color" value="blue"/>
+        <br>
+        <input type="submit" />
+    </form>
+</body>
+</html>

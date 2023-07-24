@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <link rel="stylesheet" href="index.css">
+    <title>Registration</title> 
+    <style>
+        input[type = reset]{
+            background-color: white;
+            width: 20%;
+            height: 30px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-val">
+                <form action="" autocomplete="on" target="_blank">
+                    
+                    <div >
+                        <input type="search" placeholder="Search for......" name="search"/>
+                    </div>
+
+                    <h2>Registration</h2>
+
+                    <div class="inputbox">
+                        
+                        <input 
+                        id="name"
+                        type="text" 
+                        placeholder="Name"
+                        required 
+                        maxlength="30" 
+                        minlength="5"
+                        name="name"
+                        />
+                        <label for="">Full Name</label>
+                    </div>
+
+                    <div class="inputbox">
+                        
+                        <input 
+                        type="password" 
+                        id="password" 
+                        placeholder="Password" 
+                        required 
+                        name="pass" />
+                        <label for="password">Password</label>  
+                    </div> 
+
+
+                    <div class="inputbox">
+                        <input 
+                        type="password" 
+                        id="con-password" 
+                        placeholder="Confirm Password" 
+                        required 
+                        name="con-pass" />
+                        <label for="con-password">Confirm Password</label>
+
+                    </div>
+
+                    <div class="inputbox">
+                       
+                        <input 
+                        type="email" 
+                        id="email" 
+                        placeholder="Email" 
+                        required 
+                        name="email"/>
+                        <label for="email">Email</label>
+                    </div>
+
+                    <div class="inputbox">
+                        <input 
+                        type="number" 
+                        id="age" 
+                        placeholder="Age" 
+                        title="Please enter Age" 
+                        name="age"/>
+                        <label for="age">Age</label>
+                    </div> 
+
+                    <div class="inputbox">
+                        <label for="image">Upload Image : </label>
+        <input type="file" id="image" name="image"/>
+                    </div>
+
+                    
+
+                    <div class="box">
+                        <label for="time">Enter Leave Time : </label>
+        <input id="time" type="time" name="time"/>
+                    </div>
+
+                    <br>
+
+                    <div class="box">
+                        <label for="DOB">DOB : </label>
+        <input id="DOB" type="date" name="dob" />
+                    </div>
+
+                    <br>
+
+                    <div class="box">
+                        <label for="edu">Education : </label>
+        <select name="education" id="edu">
+            <option value="non">-.-</option>
+            <option value="highSchool">High School Diploma</option>
+            <option value="underGrad">Under Graduate</option>
+            <option value="postGrad">Post Graduate</option>
+            <option value="doc">Doctorate</option>
+            <option value="self">Self Taught</option>
+        </select>
+                    </div>
+
+                    
+
+                    <br>
+
+                    <div class="box">
+                        <label>Captcha</label>
+        <br>
+        <label for="red">Red</label>
+        <input id="red" type="radio"  name="color" value="red"/>
+        <label for="blue">Blue</label>
+        <input type="radio" id="blue" name="color" value="blue"/>
+                    </div>
+
+                    <div>
+                        <br>
+                    </div>
+                    
+                    <div class="box">
+                        <label for="accept">I Accept Policy</label>
+        <input id="accept" type="checkbox" name="policy"/>
+                    </div>
+
+                    <br>
+
+                    <div class="box">
+                        <label for="confirm">I Confirm all info is correct </label>
+        <input id="confirm" type="radio" name="confirm"/>
+                    </div>
+
+                     
+                    <!-- <div>
+                        <input id="submit" type="submit">
+                    </div> -->
+
+
+                    <button>Register</button>
+                    <div class="reset">
+                        <input type="reset" />
+                    </div>
+
+                    <div class="login">
+                        <p>Already Have an Account ? <a href="#">Log in</a></p>
+
+                    </div>
+
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html> 
+
