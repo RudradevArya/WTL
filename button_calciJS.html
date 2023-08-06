@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Calci</title>
+</head>
+<body>
+    <input type="number" id="num1" placeholder="Enter the first number">
+    <input type="number" id="num2" placeholder="Enter the second number">
+    <br><br>
+    <button onclick="calculate('Add')">Add</button>
+    <button onclick="calculate('Sub')">Subtract</button>
+    <button onclick="calculate('Mul')">Multiply</button>
+    <button onclick="calculate('Div')">Divide</button>
+    <br><br>
+    <p>Result: <span id="result"></span></p>
+
+    <script>
+        function calculate(operation) {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result;
+            switch (operation) {
+                case "Add":
+                    result = num1 + num2;
+                    break;
+                case "Sub":
+                    result = num1 - num2;
+                    break;
+                case "Mul":
+                    result = num1 * num2;
+                    break;
+                case "Div":
+                    result = num1 / num2;
+                    break;
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
