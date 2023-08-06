@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flower Shop</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+			color: #4d4d4d;
+			margin-top: 50px;
+		}
+        .flower-stock {
+            display:flex; 
+            justify-content:center; 
+            flex-wrap:wrap; 
+            margin-top:50px; 
+            margin-bottom:50px
+        }
+        .flower-stock img {
+            width:200px; 
+            height:auto; 
+            margin-right:20px; 
+            margin-bottom:20px
+        }
+        .flower-types {
+            display:flex; 
+            justify-content:center; 
+            flex-wrap:wrap; 
+            margin-top:50px; 
+            margin-bottom:50px
+        }
+        .flower-types table {
+            width:auto; 
+            margin-right:20px
+        }
+        .flower-types h2 {
+            text-align:center
+        }
+        .animation {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes example {
+          0%   {background-color:red; left:0px; top:0px;}
+          25%  {background-color:yellow; left:200px; top:0px;}
+          50%  {background-color:green; left:200px; top:200px;}
+          75%  {background-color:blue; left:0px; top:200px;}
+          100% {background-color:red; left:0px; top:0px;}
+        }
+    </style>
+</head>
+<body>
+<h1>Flower Shop</h1>
+
+<div class="flower-stock">
+    <img src="flower-1.jpg" alt="Flower Image">
+    <img src="flower-2.jpg" alt="Flower Image">
+    <img src="flower-3.jpg" alt="Flower Image">
+    <img src="flower-4.jpg" alt="Flower Image">
+</div>
+
+<div class="flower-types">
+    <table>
+        <h2>Available Flower Types:</h2>
+        <tr><th>Flower Type</th><th>Description</th><th>Price</th></tr>
+        <tr><td>Roses</td><td>Red, pink, yellow, white, and more</td><td>$3.00 per stem</td></tr>
+        <tr><td>Lilies</td><td>White, pink, yellow, and more</td><td>$2.50 per stem</td></tr>
+    </table>
+
+    <table>
+        <h2>Available Flower Stock:</h2>
+        <tr><th>Flower Name</th><th>Stock Available</th></tr>
+        <tr><td>Roses</td><td>100 stems</td></tr>
+        <tr><td>Lilies</td><td>75 stems</td></tr>
+    </table>
+</div>
+
+<div class="animation"></div>
+
+<script>
+
+</script>
+
+</body>
+</html>
+

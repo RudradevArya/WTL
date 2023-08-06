@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coffee Shop Online</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+			color: #4d4d4d;
+			margin-top: 50px;
+		}
+		table {
+			margin: auto;
+			border-collapse: collapse;
+			width: 80%;
+			background-color: #fff;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+			margin-bottom: 50px;
+		}
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+		}
+		tr:hover {
+			background-color: #f5f5f5;
+		}
+		th {
+			background-color: #4d4d4d;
+			color: white;
+		}
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		select {
+			padding: 12px 20px;
+			border-radius: 4px;
+			background-color: #fff;
+			color: #4d4d4d;
+			border: none;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		input[type=submit] {
+		  background-color: #4d4d4d;
+		  color: white;
+		  padding: 12px 20px;
+		  border-radius: 4px;
+		  border:none;
+		  cursor:pointer
+		}
+    </style>
+</head>
+<body>
+<h1>Coffee Shop Online</h1>
+<img src="coffee-cup.jpg" alt="Coffee Cup Image">
+<table>
+    <tr>
+        <th>Coffee Type</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>Espresso</td>
+        <td>$2.00</td>
+    </tr>
+    <tr>
+        <td>Americano</td>
+        <td>$2.50</td>
+    </tr>
+    <tr>
+        <td>Cappuccino</td>
+        <td>$3.00</td>
+    </tr>
+    <tr>
+        <td>Latte</td>
+        <td>$3.50</td>
+    </tr>
+</table>
+
+<form action="">
+    <label for="coffee-type">Select a coffee type:</label><br>
+
+    <select id="coffee-type" name="coffee-type">
+        <option value="espresso">Espresso ($2.00)</option>
+        <option value="americano">Americano ($2.50)</option>
+        <option value="cappuccino">Cappuccino ($3.00)</option>
+        <option value="latte">Latte ($3.50)</option>
+    </select><br>
+
+    <label for="coffee-rate">Rate your coffee type:</label><br>
+
+    <input type="radio" id="one-star" name="coffee-rate" value="1">
+    <label for="one-star">1 star</label><br>
+
+    <input type="radio" id="two-stars" name="coffee-rate" value="2">
+    <label for="two-stars">2 stars</label><br>
+
+    <input type="radio" id="three-stars" name="coffee-rate" value="3">
+    <label for="three-stars">3 stars</label><br>
+
+    <input type="radio" id="four-stars" name="coffee-rate" value="4">
+    <label for="four-stars">4 stars</label><br>
+
+    <input type="radio" id="five-stars" name="coffee-rate" value="5">
+    <label for="five-stars">5 stars</label><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
