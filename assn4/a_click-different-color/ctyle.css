@@ -1,0 +1,14 @@
+#colorSection, #imageSection {
+    width: 50%;
+    height: 100vh;
+    float: left;
+}
+#colorSection {
+    background-color: white;
+}
+#imageSection {
+    background-image: url('image1.jpg');
+}
+
+
+/* need to centre add the buttons and blur their background like 1st assignment */

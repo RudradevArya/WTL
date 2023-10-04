@@ -1,0 +1,61 @@
+<!-- 5-C] Write a Javascript code to change the color of button with following events
+1.Onmouseover
+2.Onmouseout
+3.Onclick
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- CSS -->
+    <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #f0f0f0;
+          font-family: Arial, sans-serif;
+        }
+        #myButton {
+          padding: 20px 40px;
+          font-size: 24px;
+          cursor: pointer;
+        }
+      </style>
+
+    <!-- HTML -->
+    <button id="myButton">Hover and Click Me!</button>
+
+    <!-- JS -->
+    
+    <script>
+        var btn = document.getElementById("myButton");
+
+         btn.onmouseover = function() {
+         this.style.backgroundColor = "red";
+        }
+
+        btn.onmouseout = function() {
+        this.style.backgroundColor = "green"; 
+        }
+
+         btn.onclick = function() {
+        this.style.backgroundColor = "blue"; 
+        }
+    </script>
+
+    
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,529 @@
+<!-- 6] Write a Javascript to create shopping applications which adds the books in
+cart, updates the existing books, delete the book and display the same. Create
+proper UI for the same. -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .book {
+      display: flex;
+      align-items: center;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .book img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    button {
+      margin-left: auto;
+      padding: 5px 10px;
+      background-color: #008CBA;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #007B9A;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Available Books</h1>
+<div id="books"></div>
+
+<h1>Shopping Cart</h1>
+<div id="cart"></div>
+
+<script>
+var books = [
+  {title: "Book 1", author: "Author 1", stock: 5, image: "book1.jpg"},
+  {title: "Book 2", author: "Author 2", stock: 3, image: "book2.jpg"},
+  {title: "Book 3", author: "Author 3", stock: 4, image: "book3.jpg"}
+];
+var cart = [];
+
+window.onload = function() {
+  displayBooks();
+  displayCart();
+};
+
+function displayBooks() {
+  var booksDiv = document.getElementById("books");
+  booksDiv.innerHTML = "";
+  for (var i = 0; i < books.length; i++) {
+    var bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    var bookImage = document.createElement("img");
+    bookImage.src = books[i].image;
+    bookDiv.appendChild(bookImage);
+    var bookText = document.createElement("span");
+    bookText.textContent = "Title: " + books[i].title + ", Author: " + books[i].author + ", Stock: " + books[i].stock;
+    bookDiv.appendChild(bookText);
+    var addButton = document.createElement("button");
+    addButton.textContent = "Add to Cart";
+    addButton.onclick = (function(i) {
+      return function() {
+        addToCart(i);
+      };
+    })(i);
+    bookDiv.appendChild(addButton);
+    booksDiv.appendChild(bookDiv);
+  }
+}
+
+function addToCart(index) {
+  if (books[index].stock > 0) {
+    var bookInCart = cart.find(function(book) {
+      return book.title === books[index].title;
+    });
+    if (bookInCart) {
+      bookInCart.count++;
+    } else {
+      var book = Object.assign({}, books[index]);
+      book.count = 1;
+      cart.push(book);
+    }
+    books[index].stock--;
+    displayBooks();
+    displayCart();
+  } else {
+    alert("This book is out of stock.");
+  }
+}
+
+function deleteFromCart(index) {
+  var bookInBooks = books.find(function(book) {
+    return book.title === cart[index].title;
+  });
+  if (bookInBooks) {
+    bookInBooks.stock += cart[index].count;
+  }
+  cart.splice(index, 1);
+  displayBooks();
+  displayCart();
+}
+
+function displayCart() {
+  var cartDiv = document.getElementById("cart");
+  cartDiv.innerHTML = "";
+  for (var i = 0; i < cart.length; i++) {
+    var bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    var bookImage = document.createElement("img");
+    bookImage.src = cart[i].image;
+    bookDiv.appendChild(bookImage);
+    var bookText = document.createElement("span");
+    bookText.textContent = "Title: " + cart[i].title + ", Author: " + cart[i].author + ", Count: " + cart[i].count;
+    bookDiv.appendChild(bookText);
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.onclick = (function(i) {
+      return function() {
+        deleteFromCart(i);
+      };
+    })(i);
+    bookDiv.appendChild(deleteButton);
+    cartDiv.appendChild(bookDiv);
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .book {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Available Books</h1>
+<div id="books"></div>
+
+<h1>Shopping Cart</h1>
+<div id="cart"></div>
+
+<script>
+var books = [
+  {title: "Book 1", author: "Author 1", stock: 5},
+  {title: "Book 2", author: "Author 2", stock: 3},
+  {title: "Book 3", author: "Author 3", stock: 4}
+];
+var cart = [];
+
+window.onload = function() {
+  displayBooks();
+  displayCart();
+};
+
+function displayBooks() {
+  var booksDiv = document.getElementById("books");
+  booksDiv.innerHTML = "";
+  for (var i = 0; i < books.length; i++) {
+    var bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    bookDiv.textContent = "Title: " + books[i].title + ", Author: " + books[i].author + ", Stock: " + books[i].stock;
+    var addButton = document.createElement("button");
+    addButton.textContent = "Add to Cart";
+    addButton.onclick = (function(i) {
+      return function() {
+        addToCart(i);
+      };
+    })(i);
+    bookDiv.appendChild(addButton);
+    booksDiv.appendChild(bookDiv);
+  }
+}
+
+function addToCart(index) {
+  if (books[index].stock > 0) {
+    var bookInCart = cart.find(function(book) {
+      return book.title === books[index].title;
+    });
+    if (bookInCart) {
+      bookInCart.count++;
+    } else {
+      var book = Object.assign({}, books[index]);
+      book.count = 1;
+      cart.push(book);
+    }
+    books[index].stock--;
+    displayBooks();
+    displayCart();
+  } else {
+    alert("This book is out of stock.");
+  }
+}
+
+function deleteFromCart(index) {
+  var bookInBooks = books.find(function(book) {
+    return book.title === cart[index].title;
+  });
+  if (bookInBooks) {
+    bookInBooks.stock += cart[index].count;
+  }
+  cart.splice(index, 1);
+  displayBooks();
+  displayCart();
+}
+
+function displayCart() {
+  var cartDiv = document.getElementById("cart");
+  cartDiv.innerHTML = "";
+  for (var i = 0; i < cart.length; i++) {
+    var bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    bookDiv.textContent = "Title: " + cart[i].title + ", Author: " + cart[i].author + ", Count: " + cart[i].count;
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.onclick = (function(i) {
+      return function() {
+        deleteFromCart(i);
+      };
+    })(i);
+    bookDiv.appendChild(deleteButton);
+    cartDiv.appendChild(bookDiv);
+  }
+}
+</script>
+
+</body>
+</html> 
+
+
+
+<!-- =================================================================================  -->
+
+
+
+<!--  
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .book {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Available Books</h1>
+<div id="books"></div>
+
+<h1>Shopping Cart</h1>
+<div id="cart"></div>
+
+<script>
+var books = [
+  {title: "Book 1", author: "Author 1"},
+  {title: "Book 2", author: "Author 2"},
+  {title: "Book 3", author: "Author 3"}
+];
+var cart = [];
+
+window.onload = function() {
+  displayBooks();
+  displayCart();
+};
+
+function displayBooks() {
+  var booksDiv = document.getElementById("books");
+  booksDiv.innerHTML = "";
+  for (var i = 0; i < books.length; i++) {
+    var bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    bookDiv.textContent = "Title: " + books[i].title + ", Author: " + books[i].author;
+    var addButton = document.createElement("button");
+    addButton.textContent = "Add to Cart";
+    addButton.onclick = (function(i) {
+      return function() {
+        addToCart(i);
+      };
+    })(i);
+    bookDiv.appendChild(addButton);
+    booksDiv.appendChild(bookDiv);
+  }
+}
+
+function addToCart(index) {
+  cart.push(books[index]);
+  displayCart();
+}
+
+function deleteFromCart(index) {
+  cart.splice(index, 1);
+  displayCart();
+}
+
+function displayCart() {
+  var cartDiv = document.getElementById("cart");
+  cartDiv.innerHTML = "";
+  for (var i = 0; i < cart.length; i++) {
+    var bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    bookDiv.textContent = "Title: " + cart[i].title + ", Author: " + cart[i].author;
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.onclick = (function(i) {
+      return function() {
+        deleteFromCart(i);
+      };
+    })(i);
+    bookDiv.appendChild(deleteButton);
+    cartDiv.appendChild(bookDiv);
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- =================================================================================  -->
+<!--  
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .book {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Shopping Cart</h1>
+
+<div id="cart"></div>
+
+<h2>Add a Book</h2>
+<form id="bookForm">
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title"><br>
+  <label for="author">Author:</label><br>
+  <input type="text" id="author" name="author"><br>
+  <input type="submit" value="Add Book">
+</form>
+
+<script>
+var cart = [];
+
+document.getElementById("bookForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var title = document.getElementById("title").value;
+  var author = document.getElementById("author").value;
+  addBook(title, author);
+});
+
+function addBook(title, author) {
+  var book = {title: title, author: author};
+  cart.push(book);
+  displayCart();
+}
+
+function deleteBook(index) {
+  cart.splice(index, 1);
+  displayCart();
+}
+
+function displayCart() {
+  var cartDiv = document.getElementById("cart");
+  cartDiv.innerHTML = "";
+  for (var i = 0; i < cart.length; i++) {
+    var bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    bookDiv.textContent = "Title: " + cart[i].title + ", Author: " + cart[i].author;
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.onclick = (function(i) {
+      return function() {
+        deleteBook(i);
+      };
+    })(i);
+    bookDiv.appendChild(deleteButton);
+    cartDiv.appendChild(bookDiv);
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+<!-- =================================================================================  -->
+<!--  
+ <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .book {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Available Books</h1>
+<div id="books"></div>
+
+<h1>Shopping Cart</h1>
+<div id="cart"></div>
+
+<script>
+var books = [
+  {title: "Book 1", author: "Author 1"},
+  {title: "Book 2", author: "Author 2"},
+  {title: "Book 3", author: "Author 3"}
+];
+var cart = [];
+
+window.onload = function() {
+  displayBooks();
+  displayCart();
+};
+
+function displayBooks() {
+  var booksDiv = document.getElementById("books");
+  booksDiv.innerHTML = "";
+  for (var i = 0; i < books.length; i++) {
+    var bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    bookDiv.textContent = "Title: " + books[i].title + ", Author: " + books[i].author;
+    var addButton = document.createElement("button");
+    addButton.textContent = "Add to Cart";
+    addButton.onclick = (function(i) {
+      return function() {
+        addToCart(i);
+      };
+    })(i);
+    bookDiv.appendChild(addButton);
+    booksDiv.appendChild(bookDiv);
+  }
+}
+
+function addToCart(index) {
+  cart.push(books[index]);
+  displayCart();
+}
+
+function deleteFromCart(index) {
+  cart.splice(index, 1);
+  displayCart();
+}
+
+function displayCart() {
+  var cartDiv = document.getElementById("cart");
+  cartDiv.innerHTML = "";
+  for (var i = 0; i < cart.length; i++) {
+    var bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+    bookDiv.textContent = "Title: " + cart[i].title + ", Author: " + cart[i].author;
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.onclick = (function(i) {
+      return function() {
+        deleteFromCart(i);
+      };
+    })(i);
+    bookDiv.appendChild(deleteButton);
+    cartDiv.appendChild(bookDiv);
+  }
+}
+</script>
+
+</body>
+</html> -->

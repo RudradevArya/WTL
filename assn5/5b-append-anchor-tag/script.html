@@ -1,0 +1,55 @@
+<!-- 5-B] Write a Javascript code to append anchor tag that redirects to the new page -->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- CSS -->
+    <style>
+        button {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px 20px;
+          margin: 10px 0;
+          border: none;
+          cursor: pointer;
+        }
+        button:hover {
+          opacity: 0.8;
+        }
+        a {
+          display: inline-block;
+          padding: 10px 20px;
+          margin: 10px 0;
+          background-color: #008CBA;
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+        }
+        a:hover {
+          background-color: #007B9A;
+        }
+      </style>
+
+    <!-- // HTML -->
+    <button id="myButton">Add/ Generate Link</button>
+    <div id="myDiv"></div>
+
+    <script>// JavaScript
+        document.getElementById("myButton").addEventListener("click", function() {
+        var div = document.getElementById("myDiv");
+        var link = document.createElement("a");
+        link.href = "https://www.lttstore.com";
+        link.target = "_blank";
+        link.textContent = "Go to LTT Store.com";
+        div.appendChild(link);
+        });
+    </script>
+</body>
+</html>
+
+

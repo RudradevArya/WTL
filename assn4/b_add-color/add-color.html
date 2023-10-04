@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+    <link rel="add-color-style.css" >
+<title>Add Color</title> 
+</head>
+<body>
+<script src= add-color.js></script>
+</body>
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Color to Array</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            #colorForm {
+                margin-bottom: 1em;
+            }
+            #colorList {
+                list-style: none;
+                padding: 0;
+            }
+            #colorList li {
+                margin-bottom: 0.5em;
+                padding: 0.5em;
+                background-color: lightgray;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Add Color to Array</h1>
+
+        <form id="colorForm">
+            <label for="newColor">Enter a new color:</label>
+            <input type="text" id="newColor">
+            <button type="submit">Add Color</button>
+        </form>
+
+        <h2>Colors:</h2>
+        <ul id="colorList"></ul>
+
+        <script>
+            const colors = ['Red', 'Green', 'Blue'];
+
+            const colorForm = document.getElementById('colorForm');
+            const newColorInput = document.getElementById('newColor');
+            const colorList = document.getElementById('colorList');
+
+            function updateColorList() {
+                colorList.innerHTML = '';
+                for (const color of colors) {
+                    const li = document.createElement('li');
+                    li.textContent = color;
+                    colorList.appendChild(li);
+                }
+            }
+
+            updateColorList();
+
+            colorForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const newColor = newColorInput.value;
+                if (!colors.includes(newColor)) {
+                    colors.push(newColor);
+                    updateColorList();
+                }
+                newColorInput.value = '';
+            });
+        </script>
+    </body>
+</html> -->

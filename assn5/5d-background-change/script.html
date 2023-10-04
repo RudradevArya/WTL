@@ -1,0 +1,54 @@
+<!-- 5-D] Write a Javascript code to change the background color of page onclick of
+array elements displayed as a list. -->
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <!-- CSS -->
+    <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #f0f0f0;
+          font-family: Arial, sans-serif;
+        }
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+        li {
+          padding: 10px;
+          font-size: 24px;
+          text-align: center;
+          cursor: pointer;
+        }
+      </style>
+      
+    <!-- HTML -->
+
+    <ul id="myList"></ul>
+
+
+    <!-- JS -->
+    <script>
+    var colors = ["red", "green", "blue", "yellow", "pink", "gold", "silver", "violet", "cyan"]; // array of colors
+    var list = document.getElementById("myList");
+
+    for (var i = 0; i < colors.length; i++) {
+    var listItem = document.createElement("li");
+    listItem.textContent = colors[i];
+    listItem.style.cursor = "pointer";
+    listItem.onclick = function() {
+        document.body.style.backgroundColor = this.textContent;
+    }
+    list.appendChild(listItem);
+    }
+    </script>
+
+</body>
+</html>

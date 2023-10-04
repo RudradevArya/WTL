@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>jQuery animate onCLick</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#click").animate({ 
+                    opacity: 0.5, 
+                    fontSize: "3em", 
+                }, 1000); 
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h1>
+        jQuery Animate on Click!!!
+    </h1>
+    <div id="click">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quibusdam repellendus eligendi iusto quo quam cum, reiciendis magnam, 
+        sed voluptatem, 
+        odit laboriosam! Est ipsa magni non fuga sit laborum corporis optio!
+    </div>
+    
+
+    <button>
+        Click Here Bro
+    </button>
+</body>
+</html>

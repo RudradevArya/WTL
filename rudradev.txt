@@ -1,0 +1,60 @@
+go to services.msc ..shutofff mysql
+
+start apache and mysql on xampp
+
+follow rudrdadev sql file to make new user
+
+
+go to browser then local host then xamppp then htdocs
+createa a foler in there
+
+in the browser fo to 
+http://localhost/rudradev/test.php
+where the rudradev is the folder cretaed in htdocs folder
+and the test.php is the file where code resides
+
+follow w3 schols ===== https://www.w3schools.com/php/php_mysql_prepared_statements.asp
+
+
+
+
+<!-- <?php
+    echo "RUdradve"
+?> -->
+
+
+<?php
+$servername = "localhost";
+$username = "rudradev";
+$password = "rudradev";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, 'rudytest');
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+
+
+$sql = "
+create table rudy(
+    name varchar(50),
+    id int(7)
+)
+";
+if($conn->query($sql) === TRUE)
+{
+    echo "Created rudy table suck sex fully";
+} else {
+    echo "error" . $conn->error;
+}
+
+$conn->close();
+?>
+
+
+
+
+

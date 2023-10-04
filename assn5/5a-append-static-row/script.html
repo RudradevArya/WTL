@@ -1,0 +1,60 @@
+<!-- A] Write a Javascript code to append static row to the table on click of button -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        th, td {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: left;
+        }
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+        th {
+          background-color: #4CAF50;
+          color: white;
+        }
+        button {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px 20px;
+          margin: 10px 0;
+          border: none;
+          cursor: pointer;
+        }
+        button:hover {
+          opacity: 0.8;
+        }
+      </style>
+
+    <!-- // HTML -->
+<button id="myButton">Add Row</button>
+<table id="myTable">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+</table>
+
+<script>// JavaScript
+    document.getElementById("myButton").addEventListener("click", function() {
+      var table = document.getElementById("myTable");
+      var row = table.insertRow(-1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      cell1.innerHTML = "Rudradev Arya";
+      cell2.innerHTML = "RudradevArya@gmail.com";
+    });
+    </script>
+</body>
+</html>
